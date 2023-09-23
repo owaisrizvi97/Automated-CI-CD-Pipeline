@@ -1,0 +1,79 @@
+Building in workspace /var/lib/jenkins/workspace/Automated Deployment To-Do-App
+The recommended git tool is: NONE
+using credential bd2881eb-94ac-479a-bb7c-d96497e26d6a
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/Automated Deployment To-Do-App/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/owaisrizvi97/React-django-todo-app # timeout=10
+Fetching upstream changes from https://github.com/owaisrizvi97/React-django-todo-app
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --force --progress -- https://github.com/owaisrizvi97/React-django-todo-app +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 8fecb1c2259eccd23c500b2ca7010e40eda530d3 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 8fecb1c2259eccd23c500b2ca7010e40eda530d3 # timeout=10
+Commit message: "change title"
+ > git rev-list --no-walk c78e8de843a6ca33442592d2679bdeca7f563bb5 # timeout=10
+[Automated Deployment To-Do-App] $ /bin/sh -xe /tmp/jenkins9699463383506968920.sh
++ docker build -t to-do-django-app .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 182B 0.0s done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/python:3.9
+#3 DONE 0.7s
+
+#4 [1/4] FROM docker.io/library/python:3.9@sha256:031b2a713079b2436e6c2102dbffbce109c9c2582ad0867c380e3c8d7fed477f
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 25.10kB 0.0s done
+#5 DONE 0.0s
+
+#6 [2/4] WORKDIR app
+#6 CACHED
+
+#7 [3/4] COPY . /app
+#7 DONE 0.1s
+
+#8 [4/4] RUN pip install -r requirements.txt
+#8 4.193 Collecting asgiref==3.2.3
+#8 4.253   Downloading asgiref-3.2.3-py2.py3-none-any.whl (18 kB)
+#8 4.443 Collecting Django==3.0.3
+#8 4.450   Downloading Django-3.0.3-py3-none-any.whl (7.5 MB)
+#8 5.380      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.5/7.5 MB 8.1 MB/s eta 0:00:00
+#8 5.494 Collecting django-cors-headers==3.2.1
+#8 5.511   Downloading django_cors_headers-3.2.1-py3-none-any.whl (14 kB)
+#8 5.586 Collecting djangorestframework==3.11.0
+#8 5.598   Downloading djangorestframework-3.11.0-py3-none-any.whl (911 kB)
+#8 5.622      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 911.2/911.2 kB 49.3 MB/s eta 0:00:00
+#8 5.724 Collecting pytz==2019.3
+#8 5.734   Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+#8 5.750      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 44.0 MB/s eta 0:00:00
+#8 5.788 Collecting sqlparse==0.3.0
+#8 5.793   Downloading sqlparse-0.3.0-py2.py3-none-any.whl (39 kB)
+#8 5.962 Installing collected packages: pytz, asgiref, sqlparse, Django, djangorestframework, django-cors-headers
+#8 9.118 Successfully installed Django-3.0.3 asgiref-3.2.3 django-cors-headers-3.2.1 djangorestframework-3.11.0 pytz-2019.3 sqlparse-0.3.0
+#8 9.119 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#8 9.298 
+#8 9.298 [notice] A new release of pip is available: 23.0.1 -> 23.2.1
+#8 9.298 [notice] To update, run: pip install --upgrade pip
+#8 DONE 9.5s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 3.1s done
+#9 writing image sha256:58b5735a276af1ea09a2b82c637219be8b9d772e4807b0c7a82efa48a76120d7 done
+#9 naming to docker.io/library/to-do-django-app
+#9 naming to docker.io/library/to-do-django-app 0.0s done
+#9 DONE 3.2s
++ docker run -p 8001:8001 -d to-do-django-app
+9325c6e5e46b9a3b3cabd488db33ac119155a2dc7ad83c791406629837623f01
+Finished: SUCCESS
